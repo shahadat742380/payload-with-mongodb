@@ -2,12 +2,12 @@ import { CollectionConfig } from "payload/types";
 
 const Blogs: CollectionConfig = {
   slug: "blogs",
-
   fields: [
     {
       name: "authorInfo",
       relationTo: "authors",
       type: "relationship",
+      hasMany: false,
       required: true,
     },
     {
@@ -26,11 +26,25 @@ const Blogs: CollectionConfig = {
       type: "text",
       required: true,
     },
-    // {
-    //   name: 'authorName',
-    //   type: 'relationship',
-    //   relationTo: ['author'],
-    // },
+    {
+      name: "blogType", // required
+      type: "select", // required
+      hasMany: true,
+      admin: {
+        isClearable: true,
+        isSortable: true, // use mouse to drag and drop different values, and sort them according to your choice
+      },
+      options: [
+        {
+          label: "Coder",
+          value: "coder",
+        },
+        {
+          label: "Package",
+          value: "package",
+        },
+      ],
+    },
   ],
 };
 
