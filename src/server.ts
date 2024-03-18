@@ -1,7 +1,5 @@
 import express from "express";
-// import payload, { Payload  } from "payload";
 import payload from "payload";
-import { CollectionAfterChangeHook } from "payload/types";
 
 require("dotenv").config();
 const app = express();
